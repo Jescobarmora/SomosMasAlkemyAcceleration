@@ -107,7 +107,7 @@ RSpec.describe 'Api::V1::Slides', type: :request do
         expect do
           delete api_v1_slide_path(slide), headers: valid_headers, as: :json
         end.to change(Slide, :count).by(-1)
-        expect(response).to have_http_status(:no_content)
+        expect(response).to have_http_status(:ok)
       end
     end
   end

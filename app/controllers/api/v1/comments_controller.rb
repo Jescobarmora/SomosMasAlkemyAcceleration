@@ -49,6 +49,8 @@ module Api
 
       def set_comment
         @comment = Comment.find(params[:id])
+      rescue ActiveRecord::RecordNotFound
+        render json: { error: "Could not find comment with ID '#{params[:id]}'" }
       end
 
       def comment_params

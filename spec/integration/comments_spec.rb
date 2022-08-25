@@ -77,7 +77,7 @@ describe 'Comments API' do
   path '/api/v1/comments/{id}' do
     put('Update Comment') do
       response(200, 'updated successfully') do
-        let(:id) { '2' }
+        let(:id) { '123' }
         tags 'Comments'
         consumes 'application/json'
         security [Bearer: {}]
@@ -104,8 +104,8 @@ describe 'Comments API' do
     end
 
     delete('Delete Comment') do
-      response(204, 'deleted') do
-        let(:id) { 1 }
+      response(200, 'deleted') do
+        let(:id) { '1' }
         tags 'Comments'
         consumes 'application/json'
         security [Bearer: {}]

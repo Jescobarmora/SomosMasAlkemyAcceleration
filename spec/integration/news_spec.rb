@@ -2,7 +2,7 @@
 
 require 'swagger_helper'
 
-RSpec.describe 'Categories API' do
+RSpec.describe 'News API' do
   let(:login_user) do
     create(:user, password: 'password')
     post api_v1_auth_login_path,
@@ -29,8 +29,8 @@ RSpec.describe 'Categories API' do
                      properties: {
                        content: { type: :text },
                        name: { type: :string },
-                       news_type: {type: :string},
-                       category_id: {type: :integer}
+                       news_type: { type: :string },
+                       category_id: { type: :integer }
                      }
                    }
                  }
@@ -54,13 +54,13 @@ RSpec.describe 'Categories API' do
         consumes 'application/json'
         security [Bearer: {}]
         parameter name: :Authorization, in: :header, type: :string
-        parameter name: :News, in: :body, schema: {
+        parameter name: :news, in: :body, schema: {
           type: :object,
           properties: {
             content: { type: :text },
             name: { type: :string },
-            news_type: {type: :string},
-            category_id: {type: :integer}
+            news_type: { type: :string },
+            category_id: { type: :integer }
           },
           required: %w[name]
         }
@@ -92,12 +92,12 @@ RSpec.describe 'Categories API' do
                  categories: {
                    type: :array,
                    items: {
-                    properties: {
-                        content: { type: :string },
-                        name: { type: :string },
-                        news_type: {type: :string},
-                        category_id: {type: :integer}
-                      }
+                     properties: {
+                       content: { type: :string },
+                       name: { type: :string },
+                       news_type: { type: :string },
+                       category_id: { type: :integer }
+                     }
                    }
                  }
                }
@@ -127,8 +127,8 @@ RSpec.describe 'Categories API' do
           properties: {
             content: { type: :text },
             name: { type: :string },
-            news_type: {type: :string},
-            category_id: {type: :integer}
+            news_type: { type: :string },
+            category_id: { type: :integer }
           },
           required: %w[name]
         }
@@ -146,7 +146,7 @@ RSpec.describe 'Categories API' do
     end
 
     delete('Delete News') do
-      response(204, 'deleted') do
+      response(200, 'deleted') do
         let(:id) { '1' }
         tags 'News'
         consumes 'application/json'

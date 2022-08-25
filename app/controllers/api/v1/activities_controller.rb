@@ -29,7 +29,7 @@ module Api
       def set_activity
         @activity = Activity.kept.find(params[:id])
       rescue ActiveRecord::RecordNotFound
-        render json: { error: "Couldn't find activity with ID #{params[:id]}" }, status: :not_found
+        render json: { error: "Couldn't find activity with ID #{params[:id]}" }
       end
 
       def activity_params

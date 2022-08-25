@@ -3,9 +3,11 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '3.0.3'
+ruby '3.1.2'
 
 gem 'rails', '~> 6.1.4', '>= 6.1.4.6'
+
+gem 'net-smtp', require: false
 
 gem 'aws-sdk-s3', '~> 1.113'
 gem 'bcrypt', '~> 3.1', '>= 3.1.16'
